@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Animator animator;
     public float speed = 10;
 
     [Range(1,20)]
@@ -28,6 +29,7 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -67,6 +69,15 @@ public class playerMovement : MonoBehaviour
 
     private void Walk(Vector2 dir){
         rb.velocity = (new Vector2(dir.x * speed, rb.velocity.y));
+
+        if(dir != Vector2.zero){
+            animator.SetFloat("moveX", dir.x);
+            animator.SetFloat("moveY", dir.y);
+            animator.SetBool("moving", true);
+        }else{
+            animator.SetBool("moving", false);
+        }
+            
     }
 
     private void Jump(){
