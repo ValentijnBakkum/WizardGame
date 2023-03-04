@@ -11,6 +11,20 @@ public class playerMovement : MonoBehaviour
     public float jumpVelocity = 10;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+
+    private bool onGround;
+    public Vector2 bottomOffset, rightOffset, leftOffset;
+    public float collisionRadius = 0.25f;
+
+    [Header("Layers")]
+    public LayerMask groundLayer;
+
+    public bool onWall;
+    public bool onRightWall;
+    public bool onLeftWall;
+    public int wallSide;
+    public float slideSpeed = 5;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,12 +34,26 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
+        onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer) || Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+        onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
+        onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);    
+
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
+        Debug.Log(x);
         Vector2 dir = new Vector2(x, y);
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space) && onGround){
             Jump();
+        }
+
+        if(onWall && !onGround && rb.velocity.y < 0.1)
+        {
+            if (x != 0)
+            {
+                WallSlide();
+            }
         }
 
         if(rb.velocity.y < 0){
@@ -44,5 +72,21 @@ public class playerMovement : MonoBehaviour
     private void Jump(){
         rb.velocity = new Vector2(rb.velocity.x, 0);
         rb.velocity += Vector2.up * jumpVelocity;
+    }
+
+    private void WallSlide()
+    {
+        rb.velocity = new Vector2(0, -slideSpeed);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
+
+        Gizmos.DrawWireSphere((Vector2)transform.position  + bottomOffset, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + rightOffset, collisionRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + leftOffset, collisionRadius);
     }
 }
