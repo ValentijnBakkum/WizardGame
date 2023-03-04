@@ -20,6 +20,7 @@ MonoBehaviour:
     height: 997
   m_ShowMode: 4
   m_Title: Game
+
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -94,6 +95,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+
     width: 1920
     height: 947
   m_MinSize: {x: 300, y: 200}
@@ -101,6 +103,7 @@ MonoBehaviour:
   vertical: 0
   controlID: 42
 --- !u!114 &5
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,11 +120,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1466
     y: 0
+
     width: 454
     height: 947
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
+
   m_Panes:
   - {fileID: 16}
   m_Selected: 0
@@ -269,6 +274,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+
     width: 1466
     height: 947
   m_MinSize: {x: 200, y: 200}
@@ -276,6 +282,7 @@ MonoBehaviour:
   vertical: 1
   controlID: 43
 --- !u!114 &12
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,6 +301,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+
     width: 1466
     height: 561
   m_MinSize: {x: 200, y: 100}
@@ -301,6 +309,7 @@ MonoBehaviour:
   vertical: 0
   controlID: 44
 --- !u!114 &13
+
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,22 +408,28 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+
     - Assets/Animations/Walking wizard
+
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 43
   m_LastFolders:
+
   - Assets/Animations/Walking wizard
   m_LastFoldersGridSize: 43
   m_LastProjectPath: C:\Users\thoma\OneDrive\Documents\Wizard game\WizardGame\WizardGame
+
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+
     m_SelectedIDs: 24850000
     m_LastClickedID: 34084
     m_ExpandedIDs: 000000003a6900002085000000ca9a3b
+
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -570,9 +585,11 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+
       m_SelectedIDs: f4680000
       m_LastClickedID: 26868
       m_ExpandedIDs: 2afbffff
+
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
